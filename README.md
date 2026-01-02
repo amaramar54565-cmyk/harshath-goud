@@ -4,80 +4,82 @@ birthday
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>🎉 Happy Birthday! 🎉</title>
+  <title>🎉 Surprise! 🎉</title>
   <style>
-    * { box-sizing: border-box; }
     body {
       margin: 0;
+      padding: 0;
       height: 100vh;
       display: flex;
-      align-items: center;
       justify-content: center;
-      background: radial-gradient(circle at top, #1a1a3d, #000);
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      color: #fff;
+      align-items: center;
+      background: radial-gradient(circle, #ff9a9e, #fad0c4);
+      font-family: 'Segoe UI', sans-serif;
       overflow: hidden;
-    }.container {
-  text-align: center;
+    }.box {
+  width: 200px;
+  height: 200px;
+  background: linear-gradient(135deg, #ff512f, #dd2476);
+  border-radius: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  font-size: 22px;
+  font-weight: bold;
+  cursor: pointer;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+  transition: transform 0.4s ease;
   z-index: 2;
-  padding: 20px;
 }
 
-h1 {
-  font-size: 3rem;
-  margin-bottom: 10px;
-  animation: glow 2s ease-in-out infinite alternate;
-}
-
-p {
-  font-size: 1.2rem;
-  opacity: 0.9;
+.box:hover {
+  transform: scale(1.05);
 }
 
 .photo {
-  margin: 25px auto;
-  width: 220px;
-  height: 220px;
+  position: absolute;
+  width: 250px;
+  height: 250px;
   border-radius: 50%;
-  border: 6px solid #ffcc00;
-  overflow: hidden;
-  box-shadow: 0 0 30px rgba(255, 204, 0, 0.8);
-  animation: popIn 1.2s ease-out;
-}
-
-.photo img {
-  width: 100%;
-  height: 100%;
   object-fit: cover;
+  opacity: 0;
+  transform: scale(0);
+  transition: all 1s ease;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+  z-index: 3;
 }
 
-button {
-  margin-top: 20px;
-  padding: 12px 28px;
-  font-size: 1rem;
-  border: none;
-  border-radius: 30px;
-  cursor: pointer;
-  background: linear-gradient(135deg, #ff0080, #ffcc00);
-  color: #000;
+.photo.show {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.message {
+  position: absolute;
+  bottom: 8%;
+  font-size: 28px;
   font-weight: bold;
-  box-shadow: 0 8px 20px rgba(0,0,0,0.4);
-  transition: transform 0.2s, box-shadow 0.2s;
+  color: #fff;
+  opacity: 0;
+  transition: opacity 1s ease 0.5s;
+  text-shadow: 2px 2px 8px rgba(0,0,0,0.4);
+  z-index: 3;
 }
 
-button:hover {
-  transform: scale(1.08);
-  box-shadow: 0 12px 30px rgba(0,0,0,0.6);
+.message.show {
+  opacity: 1;
 }
 
-@keyframes glow {
-  from { text-shadow: 0 0 10px #ffcc00; }
-  to { text-shadow: 0 0 25px #ff0080; }
+.blast {
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  background: gold;
+  border-radius: 50%;
+  animation: blast 1.2s ease-out forwards;
 }
 
-@keyframes popIn {
-  0% { transform: scale(0); opacity: 0; }
-  100% { transform: scale(1); opacity: 1; }
-}
-
-/* Confetti */![hh](https://github.com/user-attachments/assets/1b744fcf-22c6-4e46-b290-b050961d2946)
+@keyframes blast {
+  to {
+    transform: translate(var(--x), var(--y)) scale(0
