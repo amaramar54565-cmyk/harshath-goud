@@ -1,6 +1,5 @@
-# harshath-goud
-birthday
-<!DOCTYPE html><html lang="en">
+<!DOCTYPE html>
+<html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -16,70 +15,114 @@ birthday
       background: radial-gradient(circle, #ff9a9e, #fad0c4);
       font-family: 'Segoe UI', sans-serif;
       overflow: hidden;
-    }.box {
-  width: 200px;
-  height: 200px;
-  background: linear-gradient(135deg, #ff512f, #dd2476);
-  border-radius: 20px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  color: white;
-  font-size: 22px;
-  font-weight: bold;
-  cursor: pointer;
-  box-shadow: 0 20px 40px rgba(0,0,0,0.3);
-  transition: transform 0.4s ease;
-  z-index: 2;
-}
+    }
 
-.box:hover {
-  transform: scale(1.05);
-}
+    .box {
+      width: 200px;
+      height: 200px;
+      background: linear-gradient(135deg, #ff512f, #dd2476);
+      border-radius: 20px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: white;
+      font-size: 22px;
+      font-weight: bold;
+      cursor: pointer;
+      box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+      transition: transform 0.4s ease;
+      z-index: 2;
+    }
 
-.photo {
-  position: absolute;
-  width: 250px;
-  height: 250px;
-  border-radius: 50%;
-  object-fit: cover;
-  opacity: 0;
-  transform: scale(0);
-  transition: all 1s ease;
-  box-shadow: 0 20px 40px rgba(0,0,0,0.4);
-  z-index: 3;
-}
+    .box:hover {
+      transform: scale(1.05);
+    }
 
-.photo.show {
-  opacity: 1;
-  transform: scale(1);
-}
+    .photo {
+      position: absolute;
+      width: 250px;
+      height: 250px;
+      border-radius: 50%;
+      object-fit: cover;
+      opacity: 0;
+      transform: scale(0);
+      transition: all 1s ease;
+      box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+      z-index: 3;
+    }
 
-.message {
-  position: absolute;
-  bottom: 8%;
-  font-size: 28px;
-  font-weight: bold;
-  color: #fff;
-  opacity: 0;
-  transition: opacity 1s ease 0.5s;
-  text-shadow: 2px 2px 8px rgba(0,0,0,0.4);
-  z-index: 3;
-}
+    .photo.show {
+      opacity: 1;
+      transform: scale(1);
+    }
 
-.message.show {
-  opacity: 1;
-}
+    .message {
+      position: absolute;
+      bottom: 8%;
+      font-size: 28px;
+      font-weight: bold;
+      color: #fff;
+      opacity: 0;
+      transition: opacity 1s ease 0.5s;
+      text-shadow: 2px 2px 8px rgba(0,0,0,0.4);
+      z-index: 3;
+    }
 
-.blast {
-  position: absolute;
-  width: 10px;
-  height: 10px;
-  background: gold;
-  border-radius: 50%;
-  animation: blast 1.2s ease-out forwards;
-}
+    .message.show {
+      opacity: 1;
+    }
 
-@keyframes blast {
-  to {
-    transform: translate(var(--x), var(--y)) scale(0
+    .blast {
+      position: absolute;
+      width: 10px;
+      height: 10px;
+      background: gold;
+      border-radius: 50%;
+      animation: blast 1.2s ease-out forwards;
+    }
+
+    @keyframes blast {
+      to {
+        transform: translate(var(--x), var(--y)) scale(0);
+        opacity: 0;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="box" onclick="openSurprise()">Open Me 🎁</div>
+
+  <!-- Replace photo.jpg with your friend's image -->
+  <img src="photo.jpg" alt="Birthday Person" class="photo" id="photo" />
+
+  <div class="message" id="message">🎂 Happy Birthday! 🎉</div>
+
+  <script>
+    function openSurprise() {
+      document.querySelector('.box').style.display = 'none';
+
+      const photo = document.getElementById('photo');
+      const message = document.getElementById('message');
+
+      photo.classList.add('show');
+      message.classList.add('show');
+
+      // Blast animation
+      for (let i = 0; i < 40; i++) {
+        const blast = document.createElement('div');
+        blast.className = 'blast';
+        blast.style.left = '50%';
+        blast.style.top = '50%';
+        blast.style.setProperty('--x', `${Math.random() * 600 - 300}px`);
+        blast.style.setProperty('--y', `${Math.random() * 600 - 300}px`);
+        document.body.appendChild(blast);
+
+        setTimeout(() => blast.remove(), 1200);
+      }
+    }
+  </script>
+
+</body>
+</html>
+![hh](https://github.com/user-attachments/assets/2b4b27d7-9c50-4eb9-a314-fe6c87503e9c)
